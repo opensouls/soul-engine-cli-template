@@ -1,5 +1,6 @@
 {
   "path": "src",
   "id": "{{id}}",
+  "name": "{{name}}",
   "organization": "{{organization}}"
 }
