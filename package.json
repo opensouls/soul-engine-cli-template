@@ -16,6 +16,6 @@
   "dependencies": {
     "common-tags": "^1.8.2",
     "socialagi": "^0.0.39-3",
-    "soul-engine-cli": "^0.0.3"
+    "soul-engine-cli": "^0.0.5"
   }
 }
