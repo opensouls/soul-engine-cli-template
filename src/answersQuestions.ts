@@ -1,4 +1,4 @@
-import { brainstorm, externalDialog } from "socialagi/next";
+import { brainstorm, externalDialog } from "socialagi";
 import { MentalProcess, mentalQuery } from "soul-engine-cli";
 
 const answersGuesses: MentalProcess<{object: string}> = async ({ step: initialStep, subroutine: { useProcessMemory, useActions }, params: { object } }) => {

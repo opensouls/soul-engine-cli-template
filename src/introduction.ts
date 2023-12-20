@@ -1,4 +1,4 @@
-import { ChatMessageRoleEnum, brainstorm, decision, externalDialog } from "socialagi/next";
+import { ChatMessageRoleEnum, brainstorm, decision, externalDialog } from "socialagi";
 import { MentalProcess, mentalQuery } from "soul-engine-cli";
 import answersGuesses from "./answersQuestions.js";
 
