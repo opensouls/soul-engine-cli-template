@@ -1,6 +1,6 @@
 {
   "path": "src",
-  "id": "{{id}}",
+  "slug": "{{slug}}",
   "name": "{{name}}",
   "organization": "{{organization}}"
 }
