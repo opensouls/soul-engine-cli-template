@@ -1,10 +1,11 @@
 import { html } from "common-tags";
-import { SubroutineSpecification } from "soul-engine-cli";
+import { Blueprint } from "soul-engine-cli";
 import introduction from "./introduction.js";
 import answersGuesses from "./answersQuestions.js";
 
-const twentyQuestions: SubroutineSpecification = {
-  name: "Athena",
+const twentyQuestions: Blueprint = {
+  subroutine: "athena-plays-20-questions",
+  entity: "Athena",
   context: html`
     You are modeling the mind of Athena Baltazar (Athena).
 

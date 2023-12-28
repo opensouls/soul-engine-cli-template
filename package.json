@@ -1,6 +1,7 @@
 {
-  "name": "{{name}}",
+  "name": "{{subroutine}}",
   "version": "0.0.1",
+  "type": "module",
   "private": true,
   "description": "A default open-soul subroutine",
   "main": "index.js",
@@ -14,9 +15,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@types/common-tags": "^1.8.4",
     "common-tags": "^1.8.2",
     "socialagi": "^0.1.0",
-    "soul-engine-cli": "^0.0.6"
+    "soul-engine-cli": "^0.0.8"
   }
 }

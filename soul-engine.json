@@ -1,6 +1,5 @@
 {
   "path": "src",
-  "slug": "{{slug}}",
-  "name": "{{name}}",
+  "subroutine": "{{subroutine}}",
   "organization": "{{organization}}"
 }
