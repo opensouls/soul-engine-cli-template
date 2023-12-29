@@ -1,5 +1,5 @@
 import { html } from "common-tags";
-import { Blueprint } from "soul-engine-cli";
+import { Blueprint } from "soul-engine";
 import introduction from "./introduction.js";
 import answersGuesses from "./answersQuestions.js";
 

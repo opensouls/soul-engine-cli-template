@@ -1,18 +1,17 @@
 import { ChatMessageRoleEnum, brainstorm, decision, externalDialog } from "socialagi";
-import { MentalProcess, mentalQuery } from "soul-engine-cli";
+import { MentalProcess, mentalQuery } from "soul-engine";
 import answersGuesses from "./answersQuestions.js";
 
-const introduction: MentalProcess = async ({ step: initialStep, subroutine: { moveToProcess, useProcessMemory, useActions, useInvocationCount} }) => {
+const introduction: MentalProcess = async ({ step: initialStep, subroutine: { useProcessManager, useProcessMemory, useActions} }) => {
   const didPick = useProcessMemory("")
   const { speak, log } = useActions()
-  const invocationCount = useInvocationCount()
-
-  log("hello")
+  const { invocationCount, setNextProcess } = useProcessManager()
 
   let step = initialStep
 
+  log("invocation count", invocationCount)
+
   if (invocationCount === 0) {
-    console.log("---- once")
     const { stream, nextStep } = await initialStep.next(externalDialog("Tell the user about the game twenty questions, and ask them if they are ready to play?"), { stream: true });
     speak(stream);
     step = await nextStep
@@ -21,8 +20,6 @@ const introduction: MentalProcess = async ({ step: initialStep, subroutine: { mo
     speak(stream);
     step = await nextStep
   }
-
-  log("step: ", step)
 
   if (!didPick.current) {
     const brainstormStep = await initialStep.next(brainstorm("objects for 20 questions"))
@@ -40,7 +37,7 @@ const introduction: MentalProcess = async ({ step: initialStep, subroutine: { mo
 
   const playingDecision = (await step.next(mentalQuery("The user has indicated they are ready to play."))).value;
   if (playingDecision) {
-    return moveToProcess(answersGuesses, step, { object: didPick.current })
+    setNextProcess(answersGuesses, { object: didPick.current })
   }
 
   return step

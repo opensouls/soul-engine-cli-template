@@ -1,9 +1,11 @@
 import { brainstorm, externalDialog } from "socialagi";
-import { MentalProcess, mentalQuery } from "soul-engine-cli";
+import { MentalProcess, mentalQuery } from "soul-engine";
 
 const answersGuesses: MentalProcess<{object: string}> = async ({ step: initialStep, subroutine: { useProcessMemory, useActions }, params: { object } }) => {
   const questionsAttempted = useProcessMemory(0);
   const { speak, leaveConversation, log } = useActions()
+
+  log("questions attempted: ", questionsAttempted.current)
 
   const hintOrWin = await initialStep.next(mentalQuery(`Has the user guessed ${object} correctly?`));
   if (hintOrWin.value) {
