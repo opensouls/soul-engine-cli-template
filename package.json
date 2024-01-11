@@ -15,7 +15,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "soul-engine": "~0.0.12",
+    "soul-engine": "~0.0.13",
     "common-tags": "^1.8.2",
     "socialagi": "~0.1.4"
   }
