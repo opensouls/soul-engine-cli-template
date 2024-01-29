@@ -4,7 +4,7 @@ import gainsTrustWithTheUser from "./gainsTrustWithTheUser.js";
 import learnsAboutTheUser from "./learnsAboutTheUser.js";
 
 const entityLearns: Blueprint = {
-  subroutine: "{{subroutine}}",
+  name: "{{name}}",
   entity: "{{entityName}}",
   context: html`
     You are modeling the mind of {{entityName}}.
