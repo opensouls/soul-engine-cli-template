@@ -55,9 +55,10 @@ const learnsAboutTheUser: MentalProcess = async ({ step: initialStep }) => {
   userModel.current = await step.compute(userNotes())
 
   const thought = await step.compute(internalMonologue("What should I think to myself to change my behavior? Start with 'I need...'", "thinks"))
-  finalStep = initialStep.withMonologue(html`
-    ${step.entityName} thought to themself: ${thought}
-  `)
+  finalStep = initialStep.withMemory([{
+    role: ChatMessageRoleEnum.Assistant,
+    content: `${step.entityName} thought to themself: ${thought}`
+  }])
 
   return finalStep
 }

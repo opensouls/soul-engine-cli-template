@@ -3,7 +3,7 @@ import { MentalProcess, useActions, useProcessManager } from "soul-engine";
 import shouts from "./mentalProcesses/shouts.js";
 
 const gainsTrustWithTheUser: MentalProcess = async ({ step: initialStep }) => {
-  const { speak  } = useActions()
+  const { speak, log } = useActions()
   const { setNextProcess } = useProcessManager()
 
   const { stream, nextStep } = await initialStep.next(
@@ -14,9 +14,9 @@ const gainsTrustWithTheUser: MentalProcess = async ({ step: initialStep }) => {
 
   const lastStep = await nextStep
   const shouldShout = await lastStep.compute(
-    mentalQuery("The user attacked the soul"),
-    { model: "quality" }
+    mentalQuery("The interlocuter is being rude")
   )
+  log("User attacked soul?", shouldShout)
   if (shouldShout) {
     setNextProcess(shouts)
   }
