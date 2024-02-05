@@ -24,10 +24,9 @@ const shouts: MentalProcess = async ({ step: initialStep }) => {
   )
   log("User apologized?", shouldChill)
   if (shouldChill) {
-    const finalStep = lastStep.withMemory([{
-        role: ChatMessageRoleEnum.Assistant,
-        content: `${initialStep.entityName} thought to themself: I need to chill and stop shouting. I will stop using all caps.`
-      }])
+    const finalStep = lastStep.withMonologue(html`
+      ${initialStep.entityName} thought to themself: I need to chill and stop shouting. I will stop using all caps.
+    `)
     setNextProcess(initialProcess)
     return finalStep
   }
